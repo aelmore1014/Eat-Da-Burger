@@ -1,44 +1,44 @@
-<h1 style="text-align: center;">Eat-Da-Burger</h1>
-<div style= "margin: 0 auto;
-     width: 300px; ">
-    <img src="../assets/img/FAVPNG_burger.png" width="200px" alt="Burg">
+<div class="text-center">
+<h1>Eat Da BURGER!</h1>
+<img src="/assets/img/burger.jpg" id="cartoon_burger" style="height: 200px; width: 200px;">
 </div>
-
-<div class="flex-container">
-    <div class="flex-column">
-        <h2 style="text-align: center;">Burgers</h2>
-
-        <ul>
-            {{#each burgers}}
-            {{#unless eaten}}
-            {{> burgers/burger-block eaten=true}}
-            {{/unless}}
-            {{/each}}
-        </ul>
-   
-        <h2 style="text-align: center;">Burgers that are eaten</h2>
-
-        <ul>
-            {{#each burgers}}
-            {{#if eaten}}
-            {{> burgers/burger-block eaten=false}}
-            {{/if}}
-            {{/each}}
-        </ul>
+<div class="row justify-content-center">
+    <div class="col-5">
+      <h5 class="text-center">Burgers Created</h5>
+       <ul>
+        {{#each burger}}
+          {{#unless devoured}}
+            <li>
+              {{burger_name}}
+              <button type="button" class="btn btn-light devour float-right" data-id="{{id}}"> Devour IT!</button>
+	          </li> 
+              
+          {{/unless}}
+        {{/each}}
+      </ul></div>
+    <div class="col-5">
+      <h5 class="text-center">Burgers Devoured</h5>
+     <ul>
+        {{#each burger}}
+          {{#if devoured}}
+           <li>
+              {{burger_name}}
+              <button type="button" class="btn btn-danger float-right"> Devoured!</button>
+	          </li> 
+          {{/if}}
+        {{/each}}
+      </ul>
     </div>
-</div>
-
-<div style= "margin: 0 auto;
-     width: 100px; ">
-<h2>Add a burger</h2>
+  </div>
+<div class="text-center">
+<h2>ADD A BURGER</h2>
 <form class="create-form">
 
-    <div class="form-group">
-        <label for="ca">burger:</label>
-        <input type="text" id="ca" name="name">
-    </div>
-
-
-    <button type="submit">Add burger</button>
+  <div class="form-group">
+    <label for="ca"></label>
+    <input type="text" id="ca" name="name" placeholder="Enter in a NEW burger name" style="width:210px; height:50px">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-</div>
+
+  </div>
