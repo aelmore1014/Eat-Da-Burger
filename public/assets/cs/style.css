@@ -1,0 +1,33 @@
+html {
+    background-color: aliceblue;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  body {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+  
+  }
+  
+  li {
+      padding: 5px;
+      margin: 5px;
+      background: #faebd7;
+    }
+    
+    .label {
+      font-weight: bold;
+    }
+    
+    .create-update-form {
+      padding: 5px;
+      margin: 5px;
+      background: aqua;
+    }
+    
+    .form-group {
+      margin-bottom: 5px;
+    }
