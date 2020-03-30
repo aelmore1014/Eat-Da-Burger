@@ -1,42 +1,42 @@
-<h1>Eat-Da-Burger!</h1>
+<h1>Eat Da Burger, Eat it Now!</h1>
+<br>
 
-<main>
-  <div class="container">
-<div class="row">
-    <div class="col s6">
-    {{#each burgers}}
-        {{#unless this.devoured}}
-        <div>
-            <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
-            <button type="submit" class='burgerAvailable'> {{this.burger_name}}</button>
+<div id='avail'>
+    <h2>Burgers Available to Eat:</h2>
+    <ul>
+        {{#each burgers}} {{#unless this.devoured}}
+        <li>
+            {{this.id}}. {{this.burger_name}}
+
+            <form action="/{{this.id}}?_method=PUT" method="POST">
+                <input type="hidden" name="devoured" value="false">
+                <button class="btn btn-warning" type="submit">Eat Me!</button>
             </form>
+
+        </li>
+        {{/unless}} {{/each}}
+    </ul>
+</div>
+<div id='devoured'>
+    <h2>Burgers That Have <br>Been Devoured: </h2>
+
+    <ul>
+        {{#each burgers}} {{#if this.devoured}}
+        <li>
+            {{this.id}}. {{this.burger_name}}
+        </li>
+        {{/if}} {{/each}}
+    </ul>
+</div>
+
+<div id='add'>
+    <h2>Add a Burger: </h2>
+
+    <form class="create-update-form" action="/" method="POST">
+        <div class="form-group">
+            <label for="dab">Burger Name:</label>
+            <input type="text" id="dab" name="burger_name">
         </div>
-        {{/unless}}
-        {{/each}}
-    </div>
-
-    <div class="col s6">
-    {{#each burgers}}
-        {{#if this.devoured}}
-        <div class='burgerEaten'>
-            <div>
-            {{this.burger_name}}
-            </div>
-        </div>
-        {{/if}}
-    {{/each}}
-    </div>
-    </div>
-  </div>
-</main>
-
-<h2>Add A Burger Option</h2>
-
-<div class="row">
-  <div class="col s12">
-<form action="/burgers" method="POST">
-    <input type="text" id="name" name="burger_name" placeholder="Uber Delicious Burger">
-    <button type="submit" class="addBurgerButton">Add The Burger</button>
+        <button class="btn btn-primary" type="submit">Add Burger</button>
     </form>
-  </div>
 </div>
