@@ -1,9 +1,9 @@
 # Eat-Da-Burger
 
-![screenshot](screenshot1)
+![screenshot](screenshot1.png)
 
 
-![screenshot](screenshot2)
+![screenshot](screenshot2.png)
 
 
 
